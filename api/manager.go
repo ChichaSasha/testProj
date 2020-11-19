@@ -1,14 +1,17 @@
 package api
 
+type Manager interface {
+	GetShortURLStatus(ctx context.Context, key string) (interface{}, error)
+}
 
-func NewManager(stg storage.Client, db db.Client, idGen utils.IDGen) Manager {
+func NewManager() Manager {
 	return &manager{}
 }
 
 type manager struct {
 }
 
-func (m *manager) GetShortURLStatus(ctx context.Context, key string) (types.Job, error) {
+func (m *manager) GetShortURLStatus(ctx context.Context, key string) (interface{}, error) {
 	type Res struct {
 		Key string
 	}
