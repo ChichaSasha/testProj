@@ -1,9 +1,8 @@
 package main
 
-import(
-	"github.com/ChichaSasha/testProj/api"
-
+import (
 	"github.com/labstack/echo"
+	"github.com/ChichaSasha/testProj/api"
 )
 
 func main() {

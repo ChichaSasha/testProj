@@ -15,10 +15,11 @@ func NewManager() Manager {
 type manager struct {
 }
 
-func (m *manager) GetShortURLStatus(ctx context.Context, key string) (interface{}, error) {
-	type Res struct {
-		Key string
-	}
+type Res struct {
+	Key string
+}
+
+func (m *manager) GetShortURLStatus(ctx context.Context, key string) (Res, error) {
 	res := Res{
 		Key : key,
 	}
