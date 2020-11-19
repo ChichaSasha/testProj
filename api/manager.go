@@ -5,7 +5,7 @@ import(
 )
 
 type Manager interface {
-	GetShortURLStatus(ctx context.Context, key string) (interface{}, error)
+	GetShortURLStatus(ctx context.Context, key string) (Res, error)
 }
 
 func NewManager() Manager {
