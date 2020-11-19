@@ -1,7 +1,9 @@
 package api
 
 import (
+	"fmt"
 	"github.com/labstack/echo"
+	"net/http"
 )
 
 func Assemble(e *echo.Echo, m Manager) {
@@ -9,6 +11,7 @@ func Assemble(e *echo.Echo, m Manager) {
 		manager: m,
 	}
 	e.GET("/:key/status", h.status)
+}
 
 type handler struct {
 	manager Manager
@@ -29,6 +32,5 @@ func (h *handler) status(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, map[string]string{
 		"key": result.Key,
-		"status": fmt.Sprint(result.Status),
 	})
 }

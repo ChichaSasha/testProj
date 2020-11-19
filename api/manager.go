@@ -1,5 +1,9 @@
 package api
 
+import(
+	"context"
+)
+
 type Manager interface {
 	GetShortURLStatus(ctx context.Context, key string) (interface{}, error)
 }
