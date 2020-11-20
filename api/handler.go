@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func Assemble(e *echo.Echo, m api.Manager) {
+func Assemble(e *echo.Echo, m Manager) {
 	h := &handler{
 		manager: m,
 	}

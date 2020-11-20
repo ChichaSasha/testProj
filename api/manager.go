@@ -4,6 +4,7 @@ import(
 	"context"
 )
 
+//go:generate mockery -name Manager -outpkg apimocks -output ./apimocks -dir .
 type Manager interface {
 	GetShortURLStatus(ctx context.Context, key string) (Res, error)
 }

@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/labstack/echo"
-	"github.com/ChichaSasha/testProj/api"
+	"github.com/testProj/api"
+	"net/http"
 )
 
 func main() {
@@ -10,6 +11,8 @@ func main() {
 
 	m := api.NewManager()
 	api.Assemble(e, m)
-
-	e.Logger.Fatal(e.Start(":8765"))
+	e.GET("/", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, map[string]string{"status": "green"})
+	})
+	e.Logger.Fatal(e.Start(":8080"))
 }
