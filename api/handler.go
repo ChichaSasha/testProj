@@ -1,7 +1,8 @@
 package api
 
 import (
-	"fmt"
+	//"fmt"
+
 	"github.com/labstack/echo"
 	"net/http"
 )
@@ -18,14 +19,14 @@ type handler struct {
 }
 
 func (h *handler) status(c echo.Context) error {
-	ctx := c.Request().Context()
+	//ctx := c.Request().Context()
 
 	key := c.Param("key")
 	if key == "" {
-		return fmt.Errorf("key is empty")
+		return nil//fmt.Errorf("key is empty")
 	}
 
-	result, err := h.manager.GetShortURLStatus(ctx, key)
+	result, err := h.manager.GetShortURLStatus(key)
 	if err != nil {
 		return err
 	}
